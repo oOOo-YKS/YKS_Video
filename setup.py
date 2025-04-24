@@ -10,8 +10,8 @@ def get_long_description():
 
 setup(
     name="YKS_Video",
-    version="0.1.3",
-    packages=find_packages(include=["Video*"]),
+    version="0.1.5",
+    packages=find_packages(include=["YKS_Video*"]),
     install_requires=[
         "opencv-python>=4.5",
         "numpy>=1.19",

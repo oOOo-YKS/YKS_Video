@@ -1,5 +1,5 @@
 import cv2
-from typing import List
+from typing import List, Generator
 from pathlib import Path
 from ..exceptions import VideoOpenError, FrameReadError
 from .frame import Frame
@@ -66,7 +66,7 @@ class Video:
             
         return Frame(frame)
 
-    def iter_frames(self) -> Frame:
+    def iter_frames(self) -> Generator[Frame, None, None]:
         """迭代生成所有帧"""
         self._cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
         while True:

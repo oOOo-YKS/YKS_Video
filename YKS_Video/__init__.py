@@ -24,8 +24,8 @@ __all__ = [
 ]
 
 # 显式导入公共API
-from .core.video import Video
-from .core.frame import Frame
+from .core import Video
+from .core import Frame
 
 # 导入异常体系
 from .exceptions import (
