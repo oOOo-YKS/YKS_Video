@@ -74,3 +74,15 @@ class Video:
             if not ret:
                 break
             yield Frame(frame)
+
+    def get_frames_in_sec(self, sec: int):
+        """获取指定秒数的帧"""
+        start_index = int(sec * self.fps)
+        end_index = int((sec + 1) * self.fps)
+        start_index = max(0, start_index)
+        end_index = min(end_index, self.total_frames)
+        if start_index >= end_index:
+            raise ValueError(f"无效的时间范围: {sec}秒")
+        indexs = range(start_index, end_index)
+        frames = [self.get_frame(i) for i in range(start_index, end_index)]
+        return indexs, frames
